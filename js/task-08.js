@@ -7,17 +7,20 @@ function onFormSubmit(event) {
     event.preventDefault();
 
     const formElements = event.currentTarget.elements;
-
     const mail = formElements.email.value;
     const password = formElements.password.value;
 
     const formData = {
-        mail,
-        password,
+        mail: mail,
+        password: password,
     }
 
-    if (!mail || !password)
-        message = alert('Fill all the required fields!')
-    console.log(formData)
-    form.reset()
+    if (mail === '' || password === '') {
+        return window.alert('Fill all the required fields!')
+    }
+    
+    if (mail && password) {
+        console.log(formData)
+        form.reset()
+    }
 }
